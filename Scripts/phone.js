@@ -16,8 +16,20 @@ const displayPhones = phones => {
   // clear container before append
   phonesContainer.textContent = '';
 
+  // slice to get the gist of the data
+  console.log(phones);
+  // display show all if more than 12
+  const showAllContainer = document.getElementById('show-all-container')
+  if (phones.length > 12) {
+    showAllContainer.classList.remove('hidden');
+  } else {
+    showAllContainer.classList.add('hidden');
+  }
+
+  phones = phones.slice(0, 12);
+
   phones.forEach(phone => {
-    console.log(phone);
+    // console.log(phone);
     // 2. create a div
     const phoneCard = document.createElement('div');
     phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
@@ -45,6 +57,13 @@ const handleSearch = () => {
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
   console.log(searchText);
+  loadPhone(searchText);
+}
+
+
+const handleSearch2 = () => {
+  const searchField = document.getElementById('search-field2');
+  const searchText = searchField.value;
   loadPhone(searchText);
 }
 
