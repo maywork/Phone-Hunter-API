@@ -44,16 +44,19 @@ const displayPhones = phones => {
       <div class="card-actions justify-end">
         <button class="btn btn-primary">Buy Now</button>
       </div>
-    </div>
-    `;
+      </div>
+      `;
     // 4 append to parent
     phonesContainer.appendChild(phoneCard);
   });
+  // hide loading
+  toggleLoading(false);
 }
 
 
 // handle search button
 const handleSearch = () => {
+  toggleLoading(true);
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
   console.log(searchText);
@@ -62,9 +65,21 @@ const handleSearch = () => {
 
 
 const handleSearch2 = () => {
+  toggleLoading(true);
   const searchField = document.getElementById('search-field2');
   const searchText = searchField.value;
   loadPhone(searchText);
+}
+
+
+const toggleLoading = (isLoading) => {
+  const loading = document.getElementById('loading');
+  if (isLoading) {
+    loading.classList.remove('hidden');
+    console.log('this is hiding');
+  } else {
+    loading.classList.add('hidden');
+  }
 }
 
 // loadPhone();

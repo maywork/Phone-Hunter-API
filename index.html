@@ -27,8 +27,13 @@
       <button onclick="handleSearch2()" class="btn btn-primary">Search</button>
     </section>
 
+    <!-- spinner / loader -->
+
     <!-- search results -->
     <section>
+      <div id="loading" class="text-center my-40 hidden">
+        <span class="loading loading-spinner text-accent"></span>
+      </div>
       <div id="phones-container" class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <!-- <div class="card w-96 bg-gray-100 shadow-xl">
           <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
